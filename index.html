@@ -245,13 +245,6 @@
             box-shadow: 0 28px 32px -20px rgba(100, 50, 100, 0.2);
         }
 
-        .photo-emoji {
-            font-size: 4rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        /* new style for real images */
         .photo-image {
             width: 110px;
             height: 110px;
@@ -317,11 +310,6 @@
             margin-bottom: 0.8rem;
             border: 3px solid #d9b8ff;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .modal-big-emoji {
-            font-size: 5rem;
-            margin-bottom: 0.5rem;
         }
 
         .modal-title {
@@ -448,43 +436,31 @@
         </div>
     </div>
 
-    <!-- Pictures gallery (memories of us together) - REPLACE THE IMAGE URLs BELOW WITH YOUR OWN PICTURES -->
+    <!-- Pictures gallery - FIXED: removed placeholder data attributes -->
     <div id="picturesGallery" class="gallery-memories">
-        <!-- Picture 1 -->
-        <div class="photo-card" data-img="https://placehold.co/400x400/e8d5ff/9b6bcf?text=Photo+1" data-name="Sunset with You" data-desc="That golden evening we watched the sunset together — your smile outshone the sky.">
-            <img src="c:\Users\Alyssa Limbo\Downloads\a8ef70f8-2757-4f09-b3d4-4193660bc8ec.jpg" alt="Memory 1" class="photo-image">
-            <div class="photo-title"></div>
-            <div class="photo-date"></div>
+        <div class="photo-card">
+            <img src="memory1.jpg" alt="Memory 1" class="photo-image">
+            <div class="photo-title">Memory 1</div>
         </div>
-        <!-- Picture 2 -->
-        <div class="photo-card" data-img="https://placehold.co/400x400/d9b8ff/7c4dbb?text=Photo+2" data-name="Coffee & Us" data-desc="Slow mornings, warm coffee, and your sleepy laugh — my favorite kind of peace.">
-            <img src="c:\Users\Alyssa Limbo\Downloads\784e1bea-ff0f-419e-864e-c635065af910.jpg" alt="Memory 2" class="photo-image">
-            <div class="photo-title"></div>
-            <div class="photo-date"></div>
+        <div class="photo-card">
+            <img src="memory2.jpg" alt="Memory 2" class="photo-image">
+            <div class="photo-title">Memory 2</div>
         </div>
-        <!-- Picture 3 -->
-        <div class="photo-card" data-img="https://placehold.co/400x400/c49bff/4a2d6e?text=Photo+3" data-name="Blooming Love" data-desc="Spring day, cherry blossoms, and the moment I knew I wanted forever with you.">
-            <img src="c:\Users\Alyssa Limbo\Downloads\4231c122-6ae8-4b77-8511-0112dffe5530.jpg" alt="Memory 3" class="photo-image">
-            <div class="photo-title"></div>
-            <div class="photo-date"></div>
+        <div class="photo-card">
+            <img src="memory3.jpg" alt="Memory 3" class="photo-image">
+            <div class="photo-title">Memory 3</div>
         </div>
-        <!-- Picture 4 -->
-        <div class="photo-card" data-img="https://placehold.co/400x400/b88de0/3d2a52?text=Photo+4" data-name="Starry Night" data-desc="Watching fireworks under a million stars — you made everything magical.">
-            <img src="c:\Users\Alyssa Limbo\Downloads\18e995eb-e229-4c43-b9cc-844ac6e9072b.jpg" alt="Memory 4" class="photo-image">
-            <div class="photo-title"></div>
-            <div class="photo-date"></div>
+        <div class="photo-card">
+            <img src="memory4.jpg" alt="Memory 4" class="photo-image">
+            <div class="photo-title">Memory 4</div>
         </div>
-        <!-- Picture 5 -->
-        <div class="photo-card" data-img="https://placehold.co/400x400/a878d6/2d1a40?text=Photo+5" data-name="Cuddle Weather" data-desc="Rainy days + your arms = the safest place in the world.">
-            <img src="c:\Users\Alyssa Limbo\Downloads\5f2aece5-2515-4311-9125-56f54a85d235.jpg" alt="Memory 5" class="photo-image">
-            <div class="photo-title"></div>
-            <div class="photo-date"></div>
+        <div class="photo-card">
+            <img src="memory5.jpg" alt="Memory 5" class="photo-image">
+            <div class="photo-title">Memory 5</div>
         </div>
-        <!-- Picture 6 -->
-        <div class="photo-card" data-img="https://placehold.co/400x400/9b6bcf/1a0f2e?text=Photo+6" data-name="Birthday Queen" data-desc="Today is YOUR day, my love. And every day with you feels like a celebration.">
-            <img src="c:\Users\Alyssa Limbo\Downloads\6dae4fd5-875e-4621-b912-239be7d7aa13.jpg" alt="Memory 6" class="photo-image">
-            <div class="photo-title"></div>
-            <div class="photo-date"></div>
+        <div class="photo-card">
+            <img src="memory6.jpg" alt="Memory 6" class="photo-image">
+            <div class="photo-title">Memory 6</div>
         </div>
     </div>
     <div class="footer-eternal">
@@ -492,19 +468,18 @@
     </div>
 </div>
 
-<!-- Modal for picture popup details -->
+<!-- Modal for picture popup -->
 <div id="memoryModal" class="modal-pic">
     <div class="modal-content">
         <img id="modalBigImage" class="modal-big-image" src="" alt="Memory enlarged">
-        <div class="modal-title" id="modalTitle">Sunset with You</div>
-        <div class="modal-desc" id="modalDesc">That golden evening we watched the sunset together — your smile outshone the sky.</div>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-desc" id="modalDesc"></div>
         <button class="close-modal" id="closeModalBtn"><i class="fas fa-heart"></i>  cherish this  <i class="fas fa-heart"></i></button>
     </div>
 </div>
 
 <script>
     (function() {
-        // DOM elements
         const revealBtn = document.getElementById('revealButton');
         const messageDiv = document.getElementById('heartfeltMessage');
         const galleryDiv = document.getElementById('picturesGallery');
@@ -517,7 +492,6 @@
         let messageRevealed = false;
         let galleryRevealed = false;
 
-        // Helper: create floating hearts for extra magic
         function createFloatingHeart() {
             const heart = document.createElement('div');
             heart.innerHTML = ['❤️', '💖', '🌸', '✨', '💗'][Math.floor(Math.random() * 5)];
@@ -537,14 +511,11 @@
             }
         }
 
-        // Reveal message & gallery with smooth animation + hearts
         function revealAll() {
-            // Message reveal
             if (!messageRevealed) {
                 messageDiv.classList.add('show-message');
                 messageRevealed = true;
             } else {
-                // re-trigger animation
                 messageDiv.style.animation = 'none';
                 messageDiv.offsetHeight;
                 messageDiv.style.animation = null;
@@ -554,7 +525,6 @@
                 }, 10);
             }
             
-            // Gallery reveal
             if (!galleryRevealed) {
                 galleryDiv.classList.add('show-gallery');
                 galleryRevealed = true;
@@ -568,13 +538,11 @@
                 }, 10);
             }
             
-            // burst hearts for joy
             burstHearts(10);
         }
 
         revealBtn.addEventListener('click', revealAll);
         
-        // Picture cards modal logic with real images
         const photoCards = document.querySelectorAll('.photo-card');
         
         function openModal(imgSrc, title, description) {
@@ -582,20 +550,28 @@
             modalTitleSpan.innerText = title;
             modalDescSpan.innerText = description;
             modal.style.display = 'flex';
-            createFloatingHeart(); // extra love on open
         }
         
-        photoCards.forEach(card => {
+        // Create memory descriptions for each photo
+        const memoryDescriptions = [
+            "Our first special moment together ❤️",
+            "The day we laughed until we couldn't breathe 💕",
+            "A memory I'll cherish forever 🌹",
+            "Every moment with you is magical ✨",
+            "You make my world brighter 💖",
+            "Forever thankful for you, my love 🌸"
+        ];
+        
+        photoCards.forEach((card, index) => {
             card.addEventListener('click', (e) => {
                 e.stopPropagation();
-                const imgSrc = card.getAttribute('data-img') || 'https://placehold.co/400x400/e8d5ff/9b6bcf?text=Our+Memory';
-                const titleVal = card.getAttribute('data-name') || 'Precious memory';
-                const descVal = card.getAttribute('data-desc') || 'A beautiful moment of us together.';
-                openModal(imgSrc, titleVal, descVal);
+                const imgSrc = card.querySelector('img').src;
+                const title = card.querySelector('.photo-title').innerText;
+                const desc = memoryDescriptions[index] || "A beautiful memory of us together 💕";
+                openModal(imgSrc, title, desc);
             });
         });
         
-        // Close modal functions
         function closeModal() {
             modal.style.display = 'none';
         }
@@ -609,31 +585,10 @@
             if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
         });
         
-        // Additional sparkle effect on picture click
-        photoCards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                const spark = document.createElement('div');
-                spark.innerHTML = '💫';
-                spark.style.position = 'fixed';
-                spark.style.left = e.clientX + 'px';
-                spark.style.top = e.clientY + 'px';
-                spark.style.fontSize = '1.8rem';
-                spark.style.pointerEvents = 'none';
-                spark.style.zIndex = '1100';
-                spark.style.animation = 'floatUpLove 0.8s ease-out forwards';
-                document.body.appendChild(spark);
-                setTimeout(() => spark.remove(), 800);
-            });
-        });
-        
-        // button subtle animation
         revealBtn.addEventListener('click', function() {
             revealBtn.style.transform = 'scale(0.98)';
             setTimeout(() => { revealBtn.style.transform = ''; }, 150);
         });
-        
-        console.log('💖 Birthday website for Alyssa — filled with love and forever wishes 💖');
-        console.log('📸 To add your own pictures: replace the src URLs in each photo-card with your actual image paths');
     })();
 </script>
 </body>
